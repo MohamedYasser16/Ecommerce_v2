@@ -304,8 +304,8 @@ export default function Navbar() {
                   <div className=" flex items-center h-[40px]">
 
                     <div className="flex flex-col-reverse relative">
-                      <i className={`fa-solid fa-cart-shopping text-2xl ${!number ? "text-red-500" : "text-green-400 "}`} ></i>
-                      <span className={`relative right-0 top-0 text-center ${!number ? " text-red-400" : "text-green-400 "}  `}>{number}</span>
+                      <i className={`relative right-[2px] top-[-4px] fa-solid fa-cart-shopping text-2xl  ${!number ? "text-red-500" : "text-green-400 "}`} ></i>
+                      <span className={`relative right-0 top-[0px] text-center ms-2 ${!number ? " text-red-400" : "text-green-400 "}  `}>{number}</span>
                     </div>
                     <p className=" mx-3 ">Cart</p>
 
@@ -385,30 +385,45 @@ export default function Navbar() {
   );
 
   return (
-    <div className="bg-gray-100 mb-2 dark:bg-slate-700 dark:text-green-400 ">
+    <div className="w-full bg-gray-100 mb-2 dark:bg-slate-700 dark:text-green-400 ">
       <Box sx={{ flexGrow: 1 }}>
         <AppBar sx={{ backgroundColor: "transparent" }} position="static">
-          <Toolbar sx={{ margin: "0px", paddingX: "18px" }} >
+          <Toolbar sx={{ margin: "0px", paddingX: "18px", display: "flex", justifyContent: "space-between" }} >
 
-            {/* <div className=" w-full flex items-center m-o px-0 bg-gray-100  dark:bg-slate-700 dark:text-green-400  " > */}
+<div className="flex justify-between items-center w-full">
 
-            <Link to={"/"} >
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ display: { xs: 'block' } }}
-              >
-                <img src={logo} className="h-8" alt="Logo" />
-              </Typography>
-            </Link>
+           <div className="">
+           <Link to={"/"} >
+                  <Typography
+                    variant="h6"
+                    noWrap
+                    component="div"
+                    sx={{ display: { xs: 'block' } }}
+                  >
+                    <img src={logo} className="h-8" alt="Logo" />
+                  </Typography>
+                </Link>
+           </div>
+         
 
-            <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: 'none', md: 'flex', alignItems: "center", gap: "5px" } }}>
+
+            <Box sx={{ display: { xs: 'none', md: 'flex', alignItems: "center", gap: "5px" } , minWidth:"70%"}}>
 
 
-              <div className="w-[80%] items-center justify-between hidden  md:flex md:order-1" id="navbar-cta">
-                <ul className="flex flex-col font-medium p-0 lg:p-0 mt-4 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse md:flex-row  md:items-center md:py-0 items-start lg:items-center lg:mt-0 lg:border-0  ">
+              <div className="w-[100%] items-center justify-between hidden  md:flex " id="navbar-cta">
+
+                {/* <Link to={"/"} >
+                  <Typography
+                    variant="h6"
+                    noWrap
+                    component="div"
+                    sx={{ display: { xs: 'block' } }}
+                  >
+                    <img src={logo} className="h-8" alt="Logo" />
+                  </Typography>
+                </Link> */}
+
+                <ul className="flex flex-col font-medium p-0 lg:p-0 my-4 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse md:flex-row  md:items-center md:py-0 items-start lg:items-center  lg:border-0  ">
                   <li>
                     <NavLink
                       to={""}
@@ -462,8 +477,10 @@ export default function Navbar() {
                     </li> : " "
                   }
                 </ul>
-                
-                  <ul className="flex font-medium  lg:p-0 ms-5 mt-4 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center lg:mt-0 lg:border-0 ">
+
+                <div className="flex items-center" >
+
+                  <ul className="flex font-medium  lg:p-0 ms-5 my-4 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center  lg:border-0 ">
                     <li>
                       {
                         token ? " " :
@@ -496,30 +513,37 @@ export default function Navbar() {
 
                   </ul>
 
-                  <span className="text-white justify-between w-48   font-medium rounded-lg text-sm px-5 py-5 text-center hidden lg:flex">
+                  <div>
 
-                    <i className="fa-brands fa-facebook text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400"></i>
-                    <i className="fa-brands fa-instagram text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
-                    <i className="fa-brands fa-linkedin text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
+                    <span className="text-white justify-between w-48   font-medium rounded-lg text-sm px-5 py-5 text-center hidden lg:flex">
 
-                    <label className="inline-flex items-center cursor-pointer ms-2">
-                      <input onClick={() => {
+                      <i className="fa-brands fa-facebook text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400"></i>
+                      <i className="fa-brands fa-instagram text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
+                      <i className="fa-brands fa-linkedin text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
 
-                        setDark(!dark)
-                        // console.log(dark);
-                        // localStorage.setItem("dark"  , dark)
+                      <label className="inline-flex items-center cursor-pointer ms-2">
+                        <input onClick={() => {
+
+                          setDark(!dark)
+                          // console.log(dark);
+                          // localStorage.setItem("dark"  , dark)
 
 
-                      }} type="checkbox" className="sr-only peer" />
-                      <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600 dark:peer-checked:bg-green-600" />
-                    </label>
-                  </span>
-                
+                        }} type="checkbox" className="sr-only peer" />
+                        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600 dark:peer-checked:bg-green-600" />
+                      </label>
+                    </span>
+
+                  </div>
+
+
+                </div>
+
               </div>
 
             </Box>
 
-            <Box sx={{ display: { xs: 'flex', md: 'none' , alignItems : 'center' , padding:'5px' } }}>
+            <Box sx={{ display: { xs: 'flex', md: 'none', alignItems: 'center', padding: '5px' } }}>
 
               <div className="flex items-center"> <label className="inline-flex items-center cursor-pointer ms-2">
                 <input onClick={() => {
@@ -531,21 +555,22 @@ export default function Navbar() {
               </label></div>
 
               <IconButton
-              sx={{marginLeft:"8px" }}
+                sx={{ marginLeft: "8px" }}
                 // size="large"
                 // aria-label="show more"
                 aria-controls={mobileMenuId}
                 // aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
-                // color="inherit"
+              // color="inherit"
               >
                 <div className="text-slate-900 dark:text-slate-200">
-                <MoreIcon />
+                  <MoreIcon />
                 </div>
               </IconButton>
             </Box>
 
             {/* </div> */}
+            </div>
           </Toolbar>
         </AppBar>
         {renderMobileMenu}
