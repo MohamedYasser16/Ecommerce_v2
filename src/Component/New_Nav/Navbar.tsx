@@ -466,7 +466,7 @@ export default function Navbar() {
                   }
                 </ul>
                 <div className="flex  items-center">
-                  <ul className="flex flex-col font-medium p-0 lg:p-0 mt-1 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center lg:mt-0 lg:border-0 ">
+                  <ul className="flex font-medium  lg:p-0 mt-1 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center lg:mt-0 lg:border-0 ">
                     <li>
                       {
                         token ? " " :
