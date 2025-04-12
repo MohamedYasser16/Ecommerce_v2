@@ -407,10 +407,7 @@ export default function Navbar() {
             <Box sx={{ display: { xs: 'none', md: 'flex', alignItems: "center", gap: "5px" } }}>
 
 
-              <div
-                className="w-[80%] items-center justify-between hidden  md:flex md:order-1"
-                id="navbar-cta"
-              >
+              <div className="w-[80%] items-center justify-between hidden  md:flex md:order-1" id="navbar-cta">
                 <ul className="flex flex-col font-medium p-0 lg:p-0 mt-4 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse md:flex-row  md:items-center md:py-0 items-start lg:items-center lg:mt-0 lg:border-0  ">
                   <li>
                     <NavLink
@@ -465,7 +462,7 @@ export default function Navbar() {
                     </li> : " "
                   }
                 </ul>
-                <div className="flex  items-center">
+                
                   <ul className="flex font-medium  lg:p-0 mt-1 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center lg:mt-0 lg:border-0 ">
                     <li>
                       {
@@ -517,7 +514,7 @@ export default function Navbar() {
                       <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600 dark:peer-checked:bg-green-600" />
                     </label>
                   </span>
-                </div>
+                
               </div>
 
             </Box>
