@@ -463,7 +463,7 @@ export default function Navbar() {
                   }
                 </ul>
                 
-                  <ul className="flex font-medium  lg:p-0 mt-1 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center lg:mt-0 lg:border-0 ">
+                  <ul className="flex font-medium  lg:p-0 ms-5 mt-4 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center lg:mt-0 lg:border-0 ">
                     <li>
                       {
                         token ? " " :
@@ -498,9 +498,9 @@ export default function Navbar() {
 
                   <span className="text-white justify-between w-48   font-medium rounded-lg text-sm px-5 py-5 text-center hidden lg:flex">
 
-                    <i className="fa-brands fa-facebook text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400"></i>
-                    <i className="fa-brands fa-instagram text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
-                    <i className="fa-brands fa-linkedin text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
+                    <i className="fa-brands fa-facebook text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400"></i>
+                    <i className="fa-brands fa-instagram text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
+                    <i className="fa-brands fa-linkedin text-black font-bold text-[22px] mx-2 hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
 
                     <label className="inline-flex items-center cursor-pointer ms-2">
                       <input onClick={() => {
