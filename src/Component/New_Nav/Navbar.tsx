@@ -164,7 +164,7 @@ export default function Navbar() {
       },
     },
   });
-  
+
   ///////////////////////////////
 
 
@@ -221,7 +221,7 @@ export default function Navbar() {
   const renderMobileMenu = (
     <>
       <Menu
-      sx={{margin:"0px" , padding:"0px"}}
+        sx={{ margin: "0px", padding: "0px" }}
         anchorEl={mobileMoreAnchorEl}
         anchorOrigin={{
           vertical: 'top',
@@ -237,33 +237,33 @@ export default function Navbar() {
         onClose={handleMobileMenuClose}
       >
 
-        <div className="bg-gray-100 dark:bg-slate-700 dark:text-green-400 my-0 py-0">  
+        <div className="bg-gray-100 dark:bg-slate-700 dark:text-green-400 my-0 py-0">
 
-        <MenuItem >
-        
-        <NavLink
-                  to={""}
-                  className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200  "
-                  aria-current="page"
-                >
-                  <HomeIcon sx={{fontSize:"29px" , marginRight:"8px"}} />
-                  Home
-                </NavLink>
-        </MenuItem>
+          <MenuItem >
+
+            <NavLink
+              to={""}
+              className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200  "
+              aria-current="page"
+            >
+              <HomeIcon sx={{ fontSize: "29px", marginRight: "8px" }} />
+              Home
+            </NavLink>
+          </MenuItem>
 
 
 
-        <MenuItem >
-        <NavLink
-                  to={"/products"}
-                  className="block py-2 font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200 "
-                >
-                  <LibraryAddIcon sx={{fontSize:"29px" , marginRight:"8px"}} />
-                  Products
-                </NavLink>
-        </MenuItem>
+          <MenuItem >
+            <NavLink
+              to={"/products"}
+              className="flex py-2 font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200 "
+            >
+              <LibraryAddIcon sx={{ fontSize: "29px", marginRight: "8px" }} />
+              <p className="mx-3">Products</p>
+            </NavLink>
+          </MenuItem>
 
-        {/* <MenuItem >
+          {/* <MenuItem >
         <NavLink
                   to={"/categories"}
                   className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200  "
@@ -271,8 +271,8 @@ export default function Navbar() {
                  <CategoryIcon sx={{fontSize: "29px" , marginRight:"8px" }} />
                   Categories
                 </NavLink>
-        </MenuItem> */}
-        {/* <MenuItem >
+        </MenuItem> 
+        <MenuItem >
           <NavLink
             to={"/brands"}
             className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200  "
@@ -283,88 +283,101 @@ export default function Navbar() {
         </MenuItem> */}
 
 
-        <MenuItem >
-       
-              
-         
-          <NavLink
-            to={"/wishList"}
-            className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200  "
-          >
-          < FavoriteIcon sx={{fontSize:"29px" , marginRight:"8px"}} />
-      
-            Wish List
-          </NavLink>
-        </MenuItem>
-
-        {
-          token ? 
           <MenuItem >
             <NavLink
-              to={"/cart"}
-              className="block font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200  "
+              to={"/wishList"}
+              className=" py-2  flex font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200  "
             >
-              <div className=" flex items-center h-[40px]">
+              < FavoriteIcon sx={{ fontSize: "29px", marginRight: "8px" }} />
+              <p className="mx-3"> Wish List</p>
 
-              <div className="flex flex-col-reverse relative">
-                 <i className={`fa-solid fa-cart-shopping text-2xl ${!number ? "text-red-500" : "text-green-400 "}`} ></i>
-                  <span className={`relative right-0 top-0 text-center ${!number ? " text-red-400" : "text-green-400 "}  `}>{number}</span>
-                   </div>
-                    <p className=" ms-2">Cart</p>
-
-              </div>
-            
             </NavLink>
-            </MenuItem>
-         : " "
-        }
+          </MenuItem>
 
+          {
+            token ?
+              <MenuItem >
+                <NavLink
+                  to={"/cart"}
+                  className="block font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200  "
+                >
+                  <div className=" flex items-center h-[40px]">
 
-        {
-          token ? " " :
-          <MenuItem >
-           <LoginIcon sx={{fontSize: "29px"}}  />
-            <NavLink
-              to={"/login"}
-              className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200 "
-            >
-              Login
-            </NavLink>
-            </MenuItem>
+                    <div className="flex flex-col-reverse relative">
+                      <i className={`fa-solid fa-cart-shopping text-2xl ${!number ? "text-red-500" : "text-green-400 "}`} ></i>
+                      <span className={`relative right-0 top-0 text-center ${!number ? " text-red-400" : "text-green-400 "}  `}>{number}</span>
+                    </div>
+                    <p className=" mx-3 ">Cart</p>
 
-        }
+                  </div>
 
-
-        {
-          token ? " " :
-          <MenuItem >
-           <VpnKeyIcon sx={{fontSize: "29px"}} />
-            <NavLink
-              to={"/register"}
-              className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm dark:text-slate-200 "
-            >
-              <p className="capitalize mx-3"> < ManageAccountsIcon sx={{fontSize:"29px" , marginRight:"8px"}} /> Register </p>
-            </NavLink>
-            </MenuItem>
-
-        }
-
-        <MenuItem onClick={
-          () => {
-            logout()
+                </NavLink>
+              </MenuItem>
+              : " "
           }
-        } >
-          
-              <LogoutIcon sx={{fontSize:"29px" , marginRight:"8px"}} />
-           
-          <p onClick={logout} className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm hover:cursor-pointer dark:text-slate-200 ">
-            Logout
-          </p>
-        </MenuItem>
+
+
+          {
+            token ? " " :
+              <MenuItem >
+                <NavLink
+                  to={"/login"}
+                  className="flex py-2 font-semibold lg:p-0 text-gray-900 rounded-sm  dark:text-slate-200 "
+                >
+                  <LoginIcon sx={{ fontSize: "29px", marginRight: "8px" }} />
+                  <p className="capitalize mx-3">Login</p>
+                </NavLink>
+              </MenuItem>
+
+          }
+
+
+          {
+            token ? " " :
+              <MenuItem >
+                <NavLink
+                  to={"/register"}
+                  className="flex py-2   font-semibold lg:p-0 text-gray-900 rounded-sm dark:text-slate-200 "
+                >
+                  <VpnKeyIcon sx={{ fontSize: "29px", marginRight: "8px" }} />
+                  <p className="capitalize mx-3"> Register </p>
+                </NavLink>
+              </MenuItem>
+
+          }
+
+          {
+            token ? <MenuItem onClick={
+              () => {
+                logout()
+              }
+            } >
+
+              <LogoutIcon sx={{ fontSize: "29px", marginRight: "8px" }} />
+
+              <p onClick={logout} className="block py-2   font-semibold lg:p-0 text-gray-900 rounded-sm hover:cursor-pointer dark:text-slate-200 ">
+                Logout
+              </p>
+            </MenuItem> : ""
+          }
+
+          {/* <MenuItem>
+          <label className="inline-flex items-center cursor-pointer ms-2">
+            <input onClick={() => {
+
+              setDark(!dark)
+              // console.log(dark);
+              // localStorage.setItem("dark"  , dark)
+
+
+            }} type="checkbox" className="sr-only peer" />
+            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600 dark:peer-checked:bg-green-600" />
+          </label>
+          </MenuItem> */}
 
 
 
-      </div>
+        </div>
       </Menu>
     </>
 
@@ -372,162 +385,176 @@ export default function Navbar() {
   );
 
   return (
-    <div className="bg-gray-100 mb-2 dark:bg-slate-700 dark:text-green-400 ">  
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar sx={{ backgroundColor:"transparent"}} position="static">
-        <Toolbar sx={{margin:"0px" , padding:"0px" }} >
+    <div className="bg-gray-100 mb-2 dark:bg-slate-700 dark:text-green-400 ">
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar sx={{ backgroundColor: "transparent" }} position="static">
+          <Toolbar sx={{ margin: "0px", paddingX: "18px" }} >
 
-           {/* <div className=" w-full flex items-center m-o px-0 bg-gray-100  dark:bg-slate-700 dark:text-green-400  " > */}
+            {/* <div className=" w-full flex items-center m-o px-0 bg-gray-100  dark:bg-slate-700 dark:text-green-400  " > */}
 
-          <Link to={"/"} >
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: 'block' } }}
-            >
-              <img src={logo} className="h-8" alt="Logo" />
-            </Typography>
-          </Link>
+            <Link to={"/"} >
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ display: { xs: 'block' } }}
+              >
+                <img src={logo} className="h-8" alt="Logo" />
+              </Typography>
+            </Link>
 
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex', alignItems: "center", gap: "5px" } }}>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ display: { xs: 'none', md: 'flex', alignItems: "center", gap: "5px" } }}>
 
 
-            <div
-              className="w-[80%] items-center justify-between hidden  md:flex md:order-1"
-              id="navbar-cta"
-            >
-              <ul className="flex flex-col font-medium p-0 lg:p-0 mt-4 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse md:flex-row  md:items-center md:py-0 items-start lg:items-center lg:mt-0 lg:border-0  ">
-                <li>
-                  <NavLink
-                    to={""}
-                    className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
-                    aria-current="page"
-                  >
-                    Home
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink
-                    to={"/products"}
-                    className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400"
-                  >
-                    Products
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={"/categories"}
-                    className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
-                  >
-                    Categories
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={"/brands"}
-                    className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
-                  >
-                    Brands
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={"/wishList"}
-                    className="block py-2 px-3 font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
-                  >
-                    WishList
-                  </NavLink>
-                </li>
-                {
-                  token ? <li>
+              <div
+                className="w-[80%] items-center justify-between hidden  md:flex md:order-1"
+                id="navbar-cta"
+              >
+                <ul className="flex flex-col font-medium p-0 lg:p-0 mt-4 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse md:flex-row  md:items-center md:py-0 items-start lg:items-center lg:mt-0 lg:border-0  ">
+                  <li>
                     <NavLink
-                      to={"/cart"}
+                      to={""}
+                      className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
+                      aria-current="page"
+                    >
+                      Home
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      to={"/products"}
+                      className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400"
+                    >
+                      Products
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to={"/categories"}
                       className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
                     >
-                      <div className="flex flex-col-reverse relative"> <i className={`fa-solid fa-cart-shopping text-2xl ${!number ? "text-red-500" : "text-green-400 "}`} ></i> <span className={`relative right-0 top-0 text-center ${!number ? " text-red-400" : "text-green-400 "}  `}>{number}</span></div>
+                      Categories
                     </NavLink>
-                  </li> : " "
-                }
-              </ul>
-              <div className="flex  items-center">
-                <ul className="flex flex-col font-medium p-0 lg:p-0 mt-1 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center lg:mt-0 lg:border-0 ">
-                  <li>
-                    {
-                      token ? " " :
-                        <NavLink
-                          to={"/login"}
-                          className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400"
-                        >
-                          Login
-                        </NavLink>
-
-                    }
-
                   </li>
                   <li>
-                    {
-                      token ? " " :
-                        <NavLink
-                          to={"/register"}
-                          className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400"
-                        >
-                          Register
-                        </NavLink>
-
-                    }
-
+                    <NavLink
+                      to={"/brands"}
+                      className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
+                    >
+                      Brands
+                    </NavLink>
                   </li>
-                  {token && <li onClick={logout} className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400">
-                    Logout
-                  </li>}
-
+                  <li>
+                    <NavLink
+                      to={"/wishList"}
+                      className="block py-2 px-3 font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
+                    >
+                      WishList
+                    </NavLink>
+                  </li>
+                  {
+                    token ? <li>
+                      <NavLink
+                        to={"/cart"}
+                        className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400 "
+                      >
+                        <div className="flex flex-col-reverse relative"> <i className={`fa-solid fa-cart-shopping text-2xl ${!number ? "text-red-500" : "text-green-400 "}`} ></i> <span className={`relative right-0 top-0 text-center ${!number ? " text-red-400" : "text-green-400 "}  `}>{number}</span></div>
+                      </NavLink>
+                    </li> : " "
+                  }
                 </ul>
+                <div className="flex  items-center">
+                  <ul className="flex flex-col font-medium p-0 lg:p-0 mt-1 ms-5 lg:ms-0 rounded-lg lg:space-x-8 rtl:space-x-reverse lg:flex-row  items-start lg:items-center lg:mt-0 lg:border-0 ">
+                    <li>
+                      {
+                        token ? " " :
+                          <NavLink
+                            to={"/login"}
+                            className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400"
+                          >
+                            Login
+                          </NavLink>
 
-                <span className="text-white justify-between w-48   font-medium rounded-lg text-sm px-5 py-5 text-center hidden lg:flex">
+                      }
 
-                  <i className="fa-brands fa-facebook text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400"></i>
-                  <i className="fa-brands fa-instagram text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
-                  <i className="fa-brands fa-linkedin text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
+                    </li>
+                    <li>
+                      {
+                        token ? " " :
+                          <NavLink
+                            to={"/register"}
+                            className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 dark:text-slate-200 dark:hover:text-green-400"
+                          >
+                            Register
+                          </NavLink>
 
-                  <label className="inline-flex items-center cursor-pointer ms-2">
-                    <input onClick={() => {
+                      }
 
-                      setDark(!dark)
-                      // console.log(dark);
-                      // localStorage.setItem("dark"  , dark)
+                    </li>
+                    {token && <li onClick={logout} className="block py-2 px-3  font-semibold lg:p-0 text-gray-900 rounded-sm hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400">
+                      Logout
+                    </li>}
+
+                  </ul>
+
+                  <span className="text-white justify-between w-48   font-medium rounded-lg text-sm px-5 py-5 text-center hidden lg:flex">
+
+                    <i className="fa-brands fa-facebook text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400"></i>
+                    <i className="fa-brands fa-instagram text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
+                    <i className="fa-brands fa-linkedin text-black font-bold text-[22px]  hover:text-green-500 hover:cursor-pointer dark:text-slate-200 dark:hover:text-green-400" />
+
+                    <label className="inline-flex items-center cursor-pointer ms-2">
+                      <input onClick={() => {
+
+                        setDark(!dark)
+                        // console.log(dark);
+                        // localStorage.setItem("dark"  , dark)
 
 
-                    }} type="checkbox" className="sr-only peer" />
-                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600 dark:peer-checked:bg-green-600" />
-                  </label>
-                </span>
+                      }} type="checkbox" className="sr-only peer" />
+                      <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600 dark:peer-checked:bg-green-600" />
+                    </label>
+                  </span>
+                </div>
               </div>
-            </div>
 
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
+            </Box>
 
-          {/* </div> */}
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
+            <Box sx={{ display: { xs: 'flex', md: 'none' , alignItems : 'center' , padding:'5px' } }}>
 
-    </Box>
+              <div className="flex items-center"> <label className="inline-flex items-center cursor-pointer ms-2">
+                <input onClick={() => {
+                  setDark(!dark)
+                  // console.log(dark);
+                  // localStorage.setItem("dark"  , dark)
+                }} type="checkbox" className="sr-only peer" />
+                <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600 dark:peer-checked:bg-green-600" />
+              </label></div>
+
+              <IconButton
+              sx={{marginLeft:"8px" }}
+                // size="large"
+                // aria-label="show more"
+                aria-controls={mobileMenuId}
+                // aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                // color="inherit"
+              >
+                <div className="text-slate-900 dark:text-slate-200">
+                <MoreIcon />
+                </div>
+              </IconButton>
+            </Box>
+
+            {/* </div> */}
+          </Toolbar>
+        </AppBar>
+        {renderMobileMenu}
+        {renderMenu}
+
+      </Box>
     </div>
   );
 }
